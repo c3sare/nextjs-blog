@@ -1,23 +1,23 @@
-import Head from 'next/head';
-import Layout, { siteTitle, name } from '../components/Layout';
-import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/Date';
+import Head from "next/head";
+import Layout, { siteTitle, name } from "../components/Layout";
+import utilStyles from "../styles/utils.module.css";
+import { getSortedPostsData, Post } from "../lib/posts";
+import Link from "next/link";
+import Date from "../components/Date";
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }: { allPostsData: Post[] }) {
   return (
-    <Layout home>
+    <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Witaj, mam na imię {name}. Jestem programistą.
-          Możesz się ze mną skontaktować poprzez <a href="https://facebook.com/">Facebook</a>.
+          Witaj, mam na imię {name}. Jestem programistą. Możesz się ze mną
+          skontaktować poprzez <a href="https://facebook.com/">Facebook</a>.
         </p>
         <p>
-          (To jest przykładowa strona - będziesz budował strony podobne do tej{' '}
+          (To jest przykładowa strona - będziesz budował strony podobne do tej{" "}
           <a href="https://nextjs.org/learn">w naszym poradniku Next.js</a>.)
         </p>
       </section>
@@ -38,7 +38,6 @@ export default function Home({allPostsData}) {
     </Layout>
   );
 }
-
 
 //statyczne generowanie przy buildzie
 export async function getStaticProps() {
