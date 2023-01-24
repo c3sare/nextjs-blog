@@ -4,8 +4,11 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData, Post } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/Date";
+import { useState } from "react";
 
 export default function Home({ allPostsData }: { allPostsData: Post[] }) {
+  const [state, setState] = useState(false);
+
   return (
     <Layout home={true}>
       <Head>
@@ -14,11 +17,18 @@ export default function Home({ allPostsData }: { allPostsData: Post[] }) {
       <section className={utilStyles.headingMd}>
         <p>
           Witaj, mam na imię {name}. Jestem programistą. Możesz się ze mną
-          skontaktować poprzez <a href="https://facebook.com/">Facebook</a>.
+          skontaktować poprzez{" "}
+          <a href="https://facebook.com/" target="_blank" rel="noreferrer">
+            Facebook
+          </a>
+          .
         </p>
         <p>
           (To jest przykładowa strona - będziesz budował strony podobne do tej{" "}
-          <a href="https://nextjs.org/learn">w naszym poradniku Next.js</a>.)
+          <a href="https://nextjs.org/learn" target="_blank" rel="noreferrer">
+            w naszym poradniku Next.js
+          </a>
+          .)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
